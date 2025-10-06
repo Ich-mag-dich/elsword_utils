@@ -96,10 +96,23 @@
           <br />
           랜덤 미션등의 변수는 고려하지 않아 계산 결과가 다를 수 있습니다.
           <br />
-          (던전: 플레가스의 초상)
+          Enter 키 입력으로도 계산할 수 있습니다.
         </p>
+        <br />
 
+        <hr />
         <form id="expCalculator">
+          <br />
+          <p style="margin-right: 20px">던전 선택</p>
+          <label>
+            <input type="radio" name="option" value="1" checked />
+            플레가스의 초상
+          </label>
+          <label>
+            <input type="radio" name="option" value="2" />
+            마그마의 숨결</label
+          ><br /><br />
+          <hr />
           <label for="startLevel"> *시작 레벨: </label>
           <input
             type="number"
@@ -341,6 +354,7 @@
           border-color: black;
           padding: 30px;
           font-size: large;
+          height: fit-content;
         "
       >
         <div>
@@ -398,8 +412,20 @@
       </div>
     </div>
     <script>
-      const defaultExp = 13000000; // 13,000,000
-      const defaultEd = 210000; // 210,000
+      const pleagasDefaultExp = 13000000; // 13,000,000
+      const pleagasDefaultEd = 210000; // 210,000
+
+      const magmaDefaultExp = 24000000; // 24,000,000
+      const magmaDefaultEd = 210000; // 210,000
+
+      function radioSubmit(event) {
+        if (document.getElementById("expCalculator").reportValidity()) {
+          document.getElementById("expCalculator").submit();
+        }
+      }
+
+      var defaultExp = 0; // 13,000,000
+      var defaultEd = 0; // 210,000
       function formatDuration(totalSeconds) {
         const days = Math.floor(totalSeconds / (24 * 3600));
         totalSeconds %= 24 * 3600;
@@ -434,6 +460,16 @@
         .getElementById("expCalculator")
         .addEventListener("submit", function (event) {
           event.preventDefault();
+          const selectedOption = document.querySelector(
+            'input[name="option"]:checked'
+          ).value;
+          if (selectedOption === "1") {
+            defaultExp = pleagasDefaultExp;
+            defaultEd = pleagasDefaultEd;
+          } else if (selectedOption === "2") {
+            defaultExp = magmaDefaultExp;
+            defaultEd = magmaDefaultEd;
+          }
           const startLevel = parseInt(
             document.getElementById("startLevel").value
           );
