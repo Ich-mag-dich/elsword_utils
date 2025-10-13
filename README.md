@@ -37,4 +37,5 @@ g++ elsword_window_resizer/elsword_resizer.cpp -o ElswordResizer.exe -luser32 -l
 
 ### 스크린샷
 
-<img src="https://github.com/Ich-mag-dich/Ich-mag-dich/blob/main/imd.png" />
+<img width="356" height="418" alt="image" src="https://github.com/user-attachments/assets/1371fd32-da58-4068-b769-8434a1044771" />
+<img width="356" height="418" alt="image" src="https://github.com/user-attachments/assets/8fc58763-9779-4a1d-997a-410d2143357f" />
