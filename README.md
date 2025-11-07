@@ -13,11 +13,6 @@
 - [https://drive.google.com/file/d/1H7iqN_faRSyEWx5BbKsLz3Ex7qiKKtsB/view](https://drive.google.com/file/d/1H7iqN_faRSyEWx5BbKsLz3Ex7qiKKtsB/view)
 - [https://gall.dcinside.com/els/2023980](https://gall.dcinside.com/els/2023980)
 
-경험치, ED 획득 참고
-
-- [https://drive.google.com/file/d/1H7iqN_faRSyEWx5BbKsLz3Ex7qiKKtsB/view](https://drive.google.com/file/d/1H7iqN_faRSyEWx5BbKsLz3Ex7qiKKtsB/view)
-- [https://gall.dcinside.com/els/2023980](https://gall.dcinside.com/els/2023980)
-
 ## 엘소드 해상도 변경
 
 엘소드 게임의 해상도를 인게임에서 지원하지 않는 값(1920:810)으로 변경할 수 있는 프로그램입니다.
