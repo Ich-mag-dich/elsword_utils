@@ -111,7 +111,16 @@
           <label>
             <input type="radio" name="option" value="2" />
             마그마의 숨결</label
-          ><br /><br />
+          >
+          <label>
+            <input type="radio" name="option" value="3" />
+            메마른 정령의 안식처
+          </label>
+          <label>
+            <input type="radio" name="option" value="4" />
+            플레가스의 시선
+          </label>
+          <br /><br />
           <hr />
           <label for="startLevel"> *시작 레벨: </label>
           <input
@@ -418,6 +427,12 @@
       const magmaDefaultExp = 24695510; // 24,695,510
       const magmaDefaultEd = 183310; // 183,310
 
+      const asylumDefaultExp = 3424708; // 3,424,708
+      const asylumDefaultEd = 220690; // 220,690
+
+      const gazeDefaultExp = 3444504; // 3,444,504
+      const gazeDefaultEd = 238610; // 238,610
+
       function radioSubmit(event) {
         if (document.getElementById("expCalculator").reportValidity()) {
           document.getElementById("expCalculator").submit();
@@ -469,6 +484,12 @@
           } else if (selectedOption === "2") {
             defaultExp = magmaDefaultExp;
             defaultEd = magmaDefaultEd;
+          } else if (selectedOption === "3") {
+            defaultExp = asylumDefaultExp;
+            defaultEd = asylumDefaultEd;
+          } else if (selectedOption === "4") {
+            defaultExp = gazeDefaultExp;
+            defaultEd = gazeDefaultEd;
           }
           const startLevel = parseInt(
             document.getElementById("startLevel").value
