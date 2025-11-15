@@ -291,9 +291,9 @@
             min="0"
             style="display: inline-block"
             class="input-number"
-            placeholder="100"
+            placeholder="0"
           /><br />
-          <p class="nanum-gothic-gray">(100%메달 -> 100)<br />기본값: 100</p>
+          <p class="nanum-gothic-gray">(100%메달 -> 100)</p>
           <br />
           <hr />
           <label for="exp_house">온천 / 하우스: </label>
@@ -304,12 +304,9 @@
             min="0"
             style="display: inline-block"
             class="input-number"
-            placeholder="50"
+            placeholder="0"
           /><br />
-          <p class="nanum-gothic-gray">
-            (온천 -> 30, 하우스 -> 50) <br />
-            기본값: 50
-          </p>
+          <p class="nanum-gothic-gray">(온천 -> 30, 하우스 -> 50)</p>
           <br />
           <hr />
           <label for="exp_burning">경험치 배탐: </label>
@@ -424,17 +421,17 @@
       </div>
     </div>
     <script>
-      const pleagasDefaultExp = 12372500; // 12,372,500
-      const pleagasDefaultEd = 188820; // 188,820
+      const pleagasDefaultExp = 13572500; // 12,372,500
+      const pleagasDefaultEd = 228820; // 188,820
 
-      const magmaDefaultExp = 24695510; // 24,695,510
-      const magmaDefaultEd = 183310; // 183,310
+      const magmaDefaultExp = 26995510; // 24,695,510
+      const magmaDefaultEd = 213310; // 183,310
 
-      const asylumDefaultExp = 3424708; // 3,424,708
-      const asylumDefaultEd = 220690; // 220,690
+      const asylumDefaultExp = 3724708; // 3,424,708
+      const asylumDefaultEd = 248690; // 220,690
 
-      const gazeDefaultExp = 3444504; // 3,444,504
-      const gazeDefaultEd = 238610; // 238,610
+      const gazeDefaultExp = 3744504; // 3,444,504
+      const gazeDefaultEd = 260610; // 238,610
 
       function radioSubmit(event) {
         if (document.getElementById("expCalculator").reportValidity()) {
@@ -523,10 +520,10 @@
 
           let result = 0;
           const exp_medal =
-            parseInt(document.getElementById("exp_medal").value) || 100;
+            parseInt(document.getElementById("exp_medal").value) || 0;
 
           const exp_house =
-            parseInt(document.getElementById("exp_house").value) || 50;
+            parseInt(document.getElementById("exp_house").value) || 0;
           const exp_burning =
             parseInt(document.getElementById("exp_burning").value) || 0;
           const drop_burning =
