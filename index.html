@@ -241,7 +241,7 @@
           <br />
           <hr />
 
-          <div style="display: flex">
+          <!-- <div style="display: flex">
             <label> 길드 스킬 </label>
             <div
               style="display: inline-block; margin-left: 30px; margin-top: 3px"
@@ -252,7 +252,7 @@
               <label>X</label>
               <input type="radio" name="guild_skill" value="0" />
             </div>
-          </div>
+          </div> -->
           <br />
           <hr />
           <div style="display: flex">
@@ -508,9 +508,9 @@
           const stat_ed_rate = parseInt(
             document.getElementById("ed_rate").value
           );
-          const guild_skill = parseInt(
-            document.querySelector('input[name="guild_skill"]:checked').value
-          );
+          // const guild_skill = parseInt(
+          //   document.querySelector('input[name="guild_skill"]:checked').value
+          // );
           const guild_banner = parseInt(
             document.querySelector('input[name="guild_banner"]:checked').value
           );
@@ -534,7 +534,7 @@
 
           console.log(
             stat_exp_rate,
-            guild_skill,
+            // guild_skill,
             guild_banner,
             pc,
             exp_medal,
@@ -550,7 +550,7 @@
           } else {
             result =
               ((defaultExp *
-                (stat_exp_rate + guild_skill + guild_banner + 100)) /
+                (stat_exp_rate + guild_banner + 100)) /
                 100) *
               ((pc +
                 exp_medal +
@@ -568,13 +568,13 @@
             result.toLocaleString();
           document.getElementById("ed_per_game").innerText = (
             (defaultEd *
-              ((100 + stat_ed_rate + guild_skill - 5) *
+              ((100 + stat_ed_rate  - 5) *
                 ((pc + drop_burning + 100) / 100))) /
             100
           ).toLocaleString();
           document.getElementById("ed_per_time").innerText = (
             ((defaultEd *
-              ((100 + stat_ed_rate + guild_skill - 5) *
+              ((100 + stat_ed_rate  - 5) *
                 ((pc + drop_burning + 100) / 100))) /
               100) *
             Math.floor(1800 / (clearTime + delayTime))
@@ -595,7 +595,7 @@
             formatDuration(requied_time);
           document.getElementById("total_ed").innerText = (
             ((defaultEd *
-              ((100 + stat_ed_rate + guild_skill - 5) *
+              ((100 + stat_ed_rate  - 5) *
                 ((pc + drop_burning + 100) / 100))) /
               100) *
             Math.floor(requiredExp / result)
