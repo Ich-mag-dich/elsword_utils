@@ -122,6 +122,10 @@
               <input type="radio" name="option" value="4" />
               플레가스의 시선
             </label>
+            <label>
+              <input type="radio" name="option" value="5" />
+              트로쉬의 둥지
+            </label>
             <br /><br />
           </div>
           <hr />
@@ -433,6 +437,9 @@
       const gazeDefaultExp = 3744504; // 3,444,504
       const gazeDefaultEd = 258610; // 238,610
 
+      const troshNestDefaultExp = 10073708; //917,3708
+      const troshNestDefaultEd = 199128; //190,128
+
       function radioSubmit(event) {
         if (document.getElementById("expCalculator").reportValidity()) {
           document.getElementById("expCalculator").submit();
@@ -490,6 +497,9 @@
           } else if (selectedOption === "4") {
             defaultExp = gazeDefaultExp;
             defaultEd = gazeDefaultEd;
+          } else if (selectedOption === "5") {
+            defaultExp = troshNestDefaultExp;
+            defaultEd = troshNestDefaultEd;
           }
           const startLevel = parseInt(
             document.getElementById("startLevel").value
@@ -565,7 +575,7 @@
           document.getElementById("requied_exp").innerText =
             requiredExp.toLocaleString();
           document.getElementById("exp_per_game").innerText =
-            result.toLocaleString();
+          Math.floor(result).toLocaleString();
           document.getElementById("ed_per_game").innerText = (
             (defaultEd *
               ((100 + stat_ed_rate  - 5) *
