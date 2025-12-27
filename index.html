@@ -427,31 +427,28 @@
     <script>
     
 
+
       /*
-      던전별 기본 경험치 및 ED 획득량
-        트로쉬 8373708, 178128
-        초상 12372500, 188820
-        마그마숨결 24695510, 183310
-
-        계산할 때 유니크 몬스터 고려 해서 조금 상향해서 기본 경험치를 설정 했음 완전 정확하진 않음
-
+      던전별 기본 경험치 및 ED 획득량 (주석: 실제 게임 내 기본값)
+        트로쉬의 둥지: 8,373,708
+        플레가스의 초상: 12,372,500
+        마그마의 숨결: 24,695,510
+      아래는 엘리트/유니크 몬스터 등 보정(13%) 적용된 값
       */
 
-
-
-      const pleagasDefaultExp = 13572500; // 12,372,500
+      const pleagasDefaultExp = Math.floor(12372500 * 1.1); // 13,970,925
       const pleagasDefaultEd = 220820; // 188,820
 
-      const magmaDefaultExp = 26995510; // 24,695,510
+      const magmaDefaultExp = Math.floor(24695510 * 1.1); // 27,908,476
       const magmaDefaultEd = 212310; // 183,310
 
-      const asylumDefaultExp = 3724708; // 3,424,708
+      const asylumDefaultExp = Math.floor(3424708 * 1.1); // 3,870,991
       const asylumDefaultEd = 245690; // 220,690
 
-      const gazeDefaultExp = 3744504; // 3,444,504
+      const gazeDefaultExp = Math.floor(3444504 * 1.1); // 3,892,229
       const gazeDefaultEd = 258610; // 238,610
 
-      const troshNestDefaultExp = 10073708; //917,3708
+      const troshNestDefaultExp = Math.floor(8373708 * 1.1); // 9,463,238
       const troshNestDefaultEd = 199128; //190,128
 
       function radioSubmit(event) {
@@ -499,6 +496,7 @@
           const selectedOption = document.querySelector(
             'input[name="option"]:checked'
           ).value;
+          // 던전 선택에 따라 보정된 경험치/ED 사용
           if (selectedOption === "1") {
             defaultExp = pleagasDefaultExp;
             defaultEd = pleagasDefaultEd;
@@ -572,17 +570,13 @@
             alert("시작 레벨이 목표 레벨보다 높습니다.");
             return;
           } else {
+            // 수상(10%)과 클리어(30%)를 경획에 합산
+            const total_exp_gain = stat_exp_rate + guild_skill + guild_banner + 10 + 30;
+            // 경험치 보너스: PC방, 메달, 하우스, 배탐, 수련, 기타(130)
+            const total_exp_bonus = pc + exp_medal + exp_house + exp_burning + guild_trainig + 130;
             result =
-              ((defaultExp *
-                (stat_exp_rate + guild_banner + guild_skill + 100)) /
-                100) *
-              ((pc +
-                exp_medal +
-                exp_house +
-                exp_burning +
-                guild_trainig +
-                130) /
-                100);
+              ((defaultExp * (total_exp_gain + 100)) / 100) *
+              (total_exp_bonus / 100);
           }
           const requiredExp = getExp(startLevel, targetLevel);
 
