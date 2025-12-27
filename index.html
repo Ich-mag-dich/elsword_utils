@@ -243,9 +243,9 @@
             </div>
           </div>
           <br />
-          <!-- <hr /> -->
+          <hr />
 
-          <!-- <div style="display: flex">
+          <div style="display: flex">
             <label> 길드 스킬 </label>
             <div
               style="display: inline-block; margin-left: 30px; margin-top: 3px"
@@ -256,7 +256,7 @@
               <label>X</label>
               <input type="radio" name="guild_skill" value="0" />
             </div>
-          </div> -->
+          </div>
           <br />
           <hr />
           <div style="display: flex">
@@ -425,6 +425,20 @@
       </div>
     </div>
     <script>
+    
+
+      /*
+      던전별 기본 경험치 및 ED 획득량
+        트로쉬 8373708, 178128
+        초상 12372500, 188820
+        마그마숨결 24695510, 183310
+
+        계산할 때 유니크 몬스터 고려 해서 조금 상향해서 기본 경험치를 설정 했음 완전 정확하진 않음
+
+      */
+
+
+
       const pleagasDefaultExp = 13572500; // 12,372,500
       const pleagasDefaultEd = 220820; // 188,820
 
@@ -518,9 +532,9 @@
           const stat_ed_rate = parseInt(
             document.getElementById("ed_rate").value
           );
-          // const guild_skill = parseInt(
-          //   document.querySelector('input[name="guild_skill"]:checked').value
-          // );
+          const guild_skill = parseInt(
+            document.querySelector('input[name="guild_skill"]:checked').value
+          );
           const guild_banner = parseInt(
             document.querySelector('input[name="guild_banner"]:checked').value
           );
@@ -543,15 +557,15 @@
           );
 
           console.log(
-            stat_exp_rate,
-            // guild_skill,
-            guild_banner,
-            pc,
-            exp_medal,
-            exp_house,
-            exp_burning,
-            drop_burning,
-            guild_trainig
+            stat_exp_rate,"스탯 exp rate",
+            guild_skill, "길드 스킬",
+            guild_banner,"길드 휘장",
+            pc,"PC",
+            exp_medal,"경험치 메달 ",
+            exp_house,"경험치 하우스 ",
+            exp_burning,"경험치 버닝 ",
+            drop_burning,"드랍 버닝 ",
+            guild_trainig, "길드 수련 "
           );
 
           if (startLevel >= targetLevel) {
@@ -560,7 +574,7 @@
           } else {
             result =
               ((defaultExp *
-                (stat_exp_rate + guild_banner + 100)) /
+                (stat_exp_rate + guild_banner + guild_skill + 100)) /
                 100) *
               ((pc +
                 exp_medal +
