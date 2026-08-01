@@ -106,13 +106,17 @@
           <!-- <p style="margin-right: 20px">던전 선택</p> -->
           <div>
             <label>
-              <input type="radio" name="option" value="1" checked />
+              <input type="radio" name="option" value="1" />
               플레가스의 초상
             </label>
             <label>
               <input type="radio" name="option" value="2" />
               마그마의 숨결
             </label>
+            <label>
+              <input type="radio" name="option" value="6" checked/>
+              메테인 로딩도크
+            </label>  
             <br />
             <label>
               <input type="radio" name="option" value="3" />
@@ -126,6 +130,7 @@
               <input type="radio" name="option" value="5" />
               트로쉬의 둥지
             </label>
+            
             <br /><br />
           </div>
           <hr />
@@ -433,13 +438,14 @@
         트로쉬의 둥지: 8,373,708
         플레가스의 초상: 12,372,500
         마그마의 숨결: 24,695,510
+        메테인 로딩도크: 52,000,000
       아래는 엘리트/유니크 몬스터 등 보정(13%) 적용된 값
       */
 
       const pleagasDefaultExp = Math.floor(12372500 * 1.095); // 13,970,925
       const pleagasDefaultEd = 220820; // 188,820
 
-      const magmaDefaultExp = Math.floor(24695510 * 1.095); // 27,908,476
+      const magmaDefaultExp = Math.floor(24_695_510 * 1.095); // 27,908,476
       const magmaDefaultEd = 212310; // 183,310
 
       const asylumDefaultExp = Math.floor(3424708 * 1.095); // 3,870,991
@@ -450,6 +456,9 @@
 
       const troshNestDefaultExp = Math.floor(8373708 * 1.095); // 9,463,238
       const troshNestDefaultEd = 199128; //190,128
+
+      const metainLoadingDockDefaultExp = Math.floor(49005898 * 1.095); // 49,885,898
+      const metainLoadingDockDefaultEd = 224985; // 214,056
 
       function radioSubmit(event) {
         if (document.getElementById("expCalculator").reportValidity()) {
@@ -512,6 +521,9 @@
           } else if (selectedOption === "5") {
             defaultExp = troshNestDefaultExp;
             defaultEd = troshNestDefaultEd;
+          } else if (selectedOption === "6") {
+            defaultExp = metainLoadingDockDefaultExp;
+            defaultEd = metainLoadingDockDefaultEd;
           }
           const startLevel = parseInt(
             document.getElementById("startLevel").value
